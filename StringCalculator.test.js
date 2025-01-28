@@ -22,8 +22,12 @@ describe('StringCalculator', () => {
     test('should handle multiple numbers', () => {
         expect(calculator.add('1,2,3,4,5')).toBe(15);
     });
-    
+
     test('should handle new lines between numbers', () => {
         expect(calculator.add('1\n2,3')).toBe(6);
+    });
+
+    test('should support custom delimiter', () => {
+        expect(calculator.add('//;\n1;2')).toBe(3);
     });
 });
