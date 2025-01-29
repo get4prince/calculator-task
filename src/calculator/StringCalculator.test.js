@@ -42,4 +42,13 @@ describe('StringCalculator', () => {
             calculator.add('-1,-2')
         }).toThrow('negative numbers not allowed -1,-2');
     });
+
+    test('should show correct count', () => {
+        calculator.add('1,2')
+        expect(calculator.getCalledCount()).toBe(1);
+    });
+
+    test('Numbers bigger than 1000 should be ignored', () => {
+        expect(calculator.add('1,1001')).toBe(1);
+    });
 });

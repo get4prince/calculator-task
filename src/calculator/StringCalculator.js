@@ -1,4 +1,5 @@
 class StringCalculator {
+    count = 0;
     add(numbers) {
         if (!numbers) {
             return 0;
@@ -17,17 +18,23 @@ class StringCalculator {
         numbersString = numbersString.replace(/\n/g, delimiter);
 
         // Split and convert to numbers
-        const nums = numbersString.split(delimiter).map(num => parseInt(num));
+        let nums = numbersString.split(delimiter).map(num => parseInt(num));
 
         
         // Check for negative numbers
         const negatives = nums.filter(num => num < 0);
+
         if (negatives.length > 0) {
             throw new Error(`negative numbers not allowed ${negatives.join(',')}`);
         }
+        nums = nums.filter(num => num <= 1000)
 
-        // Sum all numbers  
+        this.count++;
+        // Sum all numbers
         return nums.reduce((sum, num) => sum + num, 0);
+    }
+    getCalledCount() {      
+        return this.count;
     }
 }
 
