@@ -9,3 +9,8 @@ npm i
 ```bash
 npm run test
 ```
+
+## Run project
+```bash
+npm start
+```
